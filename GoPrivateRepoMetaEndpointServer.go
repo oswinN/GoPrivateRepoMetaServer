@@ -20,6 +20,7 @@ type Configuration struct {
 	DebugOutput bool
 	CertFile    string
 	KeyFile     string
+	Modules     []string
 }
 
 type GoPrivateRepoMetaEnpointServer struct {
