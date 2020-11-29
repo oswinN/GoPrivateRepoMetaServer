@@ -19,11 +19,12 @@ func (n *GoPrivateRepoMetaEnpointServer) GoPrivateRepoMetaEndpointHandler(w http
 		repoRoot := n.config.RepoBaseURL
 		if id != "" {
 			// we have a regular request
-			w.Write([]byte("<meta name=\"go-import\" content=\"" + importPrefix + " " + vcs + " " + repoRoot + id + "\">"))
+			w.Write([]byte("<meta name=\"go-import\" content=\"" + importPrefix + "/" + id + " " + vcs + " " + repoRoot + "/" + id + "\">"))
 		} else {
-			// this is a root request and we should return one meta tag for each library that is configured in "Modules"
+			// this is a root request and we should return the parent meta and one meta tag for each library that is configured in "Modules"
+			w.Write([]byte("<meta name=\"go-import\" content=\"" + importPrefix + " " + vcs + " " + repoRoot + "\">"))
 			for _, cMod := range n.config.Modules {
-				w.Write([]byte("<meta name=\"go-import\" content=\"" + importPrefix + " " + vcs + " " + repoRoot + cMod + "\">"))
+				w.Write([]byte("<meta name=\"go-import\" content=\"" + importPrefix + "/" + id + " " + vcs + " " + repoRoot + "/" + cMod + "\">"))
 			}
 		}
 	} else {
