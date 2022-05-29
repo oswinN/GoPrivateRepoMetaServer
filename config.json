@@ -1,0 +1,10 @@
+{
+    "ServerHost": "repo.mydomain.io",
+    "ServicePort": 80,
+    "VCSType": "git",
+    "RepoBaseURL": "https://git-codecommit.us-west-2.amazonaws.com/v1/repos/",
+    "Modules": ["myModule1", "myModule2", "myModule3"],
+    "DebugOutput": true,
+    "CertFile": "",
+    "KeyFile": ""
+}
